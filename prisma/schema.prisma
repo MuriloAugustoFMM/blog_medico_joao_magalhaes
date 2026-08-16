@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ContentStatus {
+  DRAFT
+  PUBLISHED
+}
+
+enum VideoProvider {
+  YOUTUBE
+  VIMEO
+  OTHER
+}
+
+model Lead {
+  id        String   @id @default(cuid())
+  name      String
+  whatsapp  String   @unique
+  email     String?  @unique
+  source    String   @default("pre-consulta")
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+model Article {
+  id          String        @id @default(cuid())
+  title       String
+  slug        String        @unique
+  description String?
+  content     Json
+  imageUrl    String?
+  category    String?
+  readTime    Int?
+  status      ContentStatus @default(DRAFT)
+  publishedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status, publishedAt])
+  @@index([category])
+}
+
+model Video {
+  id           String        @id @default(cuid())
+  title        String
+  slug         String        @unique
+  description  String?
+  videoUrl     String
+  provider     VideoProvider @default(YOUTUBE)
+  thumbnailUrl String?
+  duration     String?
+  views        Int           @default(0)
+  status       ContentStatus @default(DRAFT)
+  publishedAt  DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status, publishedAt])
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  name         String?
+  email        String   @unique
+  passwordHash String
+  role         String   @default("ADMIN")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+

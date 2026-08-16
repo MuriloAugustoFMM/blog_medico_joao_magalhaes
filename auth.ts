@@ -27,13 +27,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
 
       async authorize(credentials) {
-        console.log('AUTHORIZE')
-
         if (
           !credentials?.email ||
           !credentials?.password
         ) {
-          console.log('CREDENTIALS MISSING')
           return null
         }
 
@@ -43,15 +40,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         const password = String(credentials.password)
 
-        console.log('EMAIL:', email)
-
         const user = await prisma.adminUser.findUnique({
           where: {
             email,
           },
         })
-
-        console.log('USER FOUND:', !!user)
 
         if (!user) {
           return null
@@ -61,8 +54,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           password,
           user.passwordHash
         )
-
-        console.log('PASSWORD VALID:', valid)
 
         if (!valid) {
           return null
@@ -98,5 +89,5 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
   },
 
-  debug: true,
+  debug: process.env.NODE_ENV === 'development',
 })

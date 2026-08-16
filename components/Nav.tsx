@@ -5,8 +5,8 @@ import Link from 'next/link'
 
 const DOCTOR_NAME = 'Dr. João Magalhães'
 const DOCTOR_INITIALS = 'JM'
-const DOCTOR_SPECIALTY = 'Endocrinologista'
-const DOCTOR_CRM = 'CRM 103983-MG'
+const DOCTOR_SPECIALTY = process.env.NEXT_PUBLIC_EPECIALIZATION
+const DOCTOR_CRM = process.env.NEXT_PUBLIC_DOCTOR_CRM
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -23,7 +23,7 @@ export default function Nav() {
               {DOCTOR_NAME.toUpperCase()}
             </p>
             <p className="text-[10px] tracking-[0.16em] text-teal uppercase">
-              {DOCTOR_SPECIALTY} · {DOCTOR_CRM}
+              {DOCTOR_SPECIALTY} | {DOCTOR_CRM}
             </p>
           </div>
         </Link>

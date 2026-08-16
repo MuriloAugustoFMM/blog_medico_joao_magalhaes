@@ -34,7 +34,7 @@ export default function About() {
                 ['Formação', 'Medicina — FMUSP · 2006'],
                 ['Residência', 'Cardiologia — InCor · 2009'],
                 ['Fellowship', 'Preventive Cardiology — Mayo Clinic · 2011'],
-                ['Registro', process.env.NEXT_PUBLIC_DOCTOR_CRM || 'CRM-MG 103.983'],
+                ['Registro', process.env.NEXT_PUBLIC_DOCTOR_CRM],
               ].map(([label, value]) => (
                 <div key={label} className="border-l-2 border-teal pl-4 py-1">
                   <p className="text-[10px] uppercase tracking-widest text-slate mb-1">{label}</p>

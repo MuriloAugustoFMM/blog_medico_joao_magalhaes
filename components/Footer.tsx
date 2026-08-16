@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
 const DOCTOR_NAME = 'Dr. João Magalhães'
-const DOCTOR_SPECIALTY = 'Endocrinologista'
-const DOCTOR_CRM = 'CRM 103983-MG'
+const DOCTOR_SPECIALTY = process.env.NEXT_PUBLIC_EPECIALIZATION
+const DOCTOR_CRM = process.env.NEXT_PUBLIC_DOCTOR_CRM
 const CONTACT_EMAIL = 'contato@drjoaomagalhaes.med.br'
 
 export default function Footer() {
@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start gap-10 pb-10 border-b border-white/10">
           <div>
             <p className="font-serif text-lg font-semibold text-white mb-1.5">{DOCTOR_NAME}</p>
-            <p className="text-xs text-slateLight/70 mb-1">{DOCTOR_SPECIALTY} · {DOCTOR_CRM}</p>
+            <p className="text-xs text-slateLight/70 mb-1">{DOCTOR_SPECIALTY} | {DOCTOR_CRM}</p>
             <p className="text-xs text-slateLight/70">{CONTACT_EMAIL}</p>
           </div>
 

@@ -61,7 +61,7 @@ export default function Home() {
                   DR. JOÃO MAGALHÃES
                 </p>
                 <p className="text-[10px] tracking-[0.18em] text-[#55b8ff] sm:text-xs sm:tracking-[0.22em]">
-                  ENDOCRINOLOGISTA · CRM 103983-MG
+                  {process.env.NEXT_PUBLIC_EPECIALIZATION} | {process.env.NEXT_PUBLIC_DOCTOR_CRM}
                 </p>
               </div>
             </Link>
@@ -116,28 +116,30 @@ export default function Home() {
             <div className="relative z-10 flex flex-col justify-center pb-10 pt-4 sm:pb-16 sm:pt-10 lg:pb-24">
 
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#35b5ff] sm:mb-6 sm:text-sm sm:tracking-[0.25em]">
-                Emagrecimento com acompanhamento médico
+                Saúde hormonal e metabólica integrada
               </p>
 
               <h1 className="max-w-[700px] text-[2.5rem] font-bold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl xl:text-7xl">
-                Cuide do seu peso
+                Equilibre a sua saúde
                 <span className="block text-[#25a9ff]">com quem cuida de você.</span>
               </h1>
 
               <p className="mt-5 max-w-[590px] text-base leading-relaxed text-white/80 sm:mt-7 sm:text-lg md:text-xl">
-                Um acompanhamento médico contínuo e individualizado, para
-                emagrecer com segurança e entender o porquê de cada etapa —
-                não uma fórmula pronta, mas um cuidado pensado para você.
+                 Um acompanhamento médico contínuo e individualizado, para
+                 restaurar seu equilíbrio metabólico e entender o porquê de cada etapa —
+                 não uma fórmula pronta, mas um cuidado pensado para você, baseado em ciência e experiência clínica.
               </p>
 
               {/* prova social baseada em credencial, não em avaliação tipo produto */}
               <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/10 pt-5 sm:mt-8">
-                <div className="flex items-center gap-2">
+              
+                {/*<div className="flex items-center gap-2">
                   <span className="text-[#25a9ff]">◆</span>
                   <span className="text-sm text-white/80">
-                    <strong className="text-white">12 anos</strong> de endocrinologia
+                    <strong className="text-white">12 anos</strong> estudando endocrinologia
                   </span>
                 </div>
+                */}
                 <div className="flex items-center gap-2">
                   <span className="text-[#25a9ff]">◆</span>
                   <span className="text-sm text-white/80">
@@ -146,7 +148,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[#25a9ff]">◆</span>
-                  <span className="text-sm text-white/80">CRM 103983-MG</span>
+                  <span className="text-sm text-white/80">{process.env.NEXT_PUBLIC_DOCTOR_CRM}</span>
                 </div>
               </div>
 
@@ -227,9 +229,15 @@ export default function Home() {
                         {status === 'loading' ? 'Enviando...' : 'Quero iniciar minha avaliação'}
                       </button>
                     </form>
-                    <p className="mt-4 flex items-center gap-2 text-xs text-white/60">
-                      <span className="text-[#25a9ff]">✓</span>
-                      Seus dados estão protegidos e serão utilizados apenas para contato.
+                    <p className="mt-4 text-center text-[11px] leading-normal text-white/60">
+                        Ao enviar, você concorda com o tratamento dos seus dados para fins de contato, conforme nossa{' '}
+                        <a href="/politica-de-privacidade" className="text-[#25a9ff] underline hover:text-[#35b5ff]">
+                          Política de Privacidade
+                        </a>{' '}
+                        e{' '}
+                        <a href="/termos-de-uso" className="text-[#25a9ff] underline hover:text-[#35b5ff]">
+                          Termos de Uso
+                        </a>.
                     </p>
                   </>
                 )}
@@ -249,7 +257,7 @@ export default function Home() {
               </div>
               <div className="absolute bottom-28 left-0 z-20 rounded-xl bg-white px-6 py-4 shadow-xl">
                 <p className="text-sm font-semibold text-[#09284a]">Dr. João Magalhães</p>
-                <p className="mt-1 text-xs text-[#087ff5]">Especialista em Endocrinologia</p>
+                <p className="mt-1 text-xs text-[#087ff5]">{process.env.NEXT_PUBLIC_EPECIALIZATION}</p>
               </div>
             </div>
           </div>
@@ -265,10 +273,10 @@ export default function Home() {
               Uma abordagem diferente
             </p>
             <h2 className="mt-4 font-serif text-3xl leading-tight text-[#09284a] sm:text-4xl md:text-5xl">
-              Emagrecimento não precisa ser uma guerra contra você.
+              Cuidar da sua saúde não precisa ser uma guerra contra você.
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-slate-600 sm:text-base">
-              O acompanhamento médico permite entender seu contexto e construir
+              O acompanhamento médico permite entender seu contexto hormonal e metabólico para construir
               uma estratégia individualizada — sem promessas milagrosas, com ciência
               e presença em cada etapa.
             </p>
@@ -334,11 +342,11 @@ export default function Home() {
             Próximo passo
           </p>
           <h2 className="mt-4 font-serif text-3xl text-white sm:text-4xl md:text-5xl">
-            Pronto para começar sua mudança?
+            Pronto para iniciar sua jornada de saúde?
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-white/70 sm:text-base">
             Conheça o trabalho do Dr. João Magalhães e descubra como funciona
-            o acompanhamento, do primeiro contato ao longo prazo.
+            o acompanhamento focado no seu equilíbrio hormonal e metabólico.
           </p>
           <a
             href="#pre-consulta"

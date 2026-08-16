@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-export default function PrivacyPolicyPage() {
+export default function UseTerms() {
   return (
     <main className="min-h-screen bg-navy flex items-center justify-center px-5 py-10 sm:px-6">
       <div className="w-full max-w-2xl">
